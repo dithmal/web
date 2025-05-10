@@ -11,7 +11,7 @@ interface Props {
     tags?: string[];
 }
 
-const { id, title, description, pubDate, heroImage = "/blog-placeholder.jpg", tags } = Astro.props;
+const { id, title, description, pubDate, heroImage = "/placeholder.jpg", tags } = Astro.props;
 ---
 
 <a href={`/blog/${id}/`}>
