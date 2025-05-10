@@ -1,10 +1,48 @@
 ---
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogCard from "../components/BlogCard.astro";
+
+const posts = (await getCollection("blog")).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-	<body>
-		<main></main>
-	</body>
+	<section class="flex flex-col items-center">
+		<p class="text-center my-8 px-10 font-light sm:w-lg">
+			Hey 👋 I’m Nadila. I like to learn about things, build things, get
+			into all kinds of trouble, and <i>*sometimes*</i> write
+			<br class="mb-4" />
+			Here are some of what I’ve learned, built, and my thoughts (and prayers
+			🙏)
+		</p>
+	</section>
+	<section>
+		<ul
+			class="flex flex-row items-stretch overflow-auto md:overflow-hidden md:grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
+		>
+			{
+				posts.map((post) => (
+					<li class="first:ml-10 md:first:ml-0">
+						<BlogCard
+							id={post.id}
+							title={post.data.title}
+							description={post.data.description}
+							pubDate={post.data.pubDate}
+							heroImage={post.data.heroImage}
+							tags={post.data.tags}
+						/>
+					</li>
+				))
+			}
+		</ul>
+	</section>
+	<section class="mt-6 flex flex-col items-center">
+		<h4 class="font-medium w-[25ch] text-center">
+			Like what you see (or not 😬) and wanna reach out?
+		</h4>
+		<p class="mt-4 text-center font-light">Find my social links below 👇</p>
+	</section>
 </BaseLayout>

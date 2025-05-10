@@ -1,0 +1,41 @@
+---
+interface Props {
+    tags: string[];
+    ts?: string;
+}
+
+const { tags, ts = "sm" } = Astro.props;
+
+const tagColors = [
+    "#3B9AE1",
+    "#36BFB1",
+    "#F26C63",
+    "#F4C430",
+    "#9C8EF3",
+    "#53C28B",
+    "#F28C38",
+    "#D27889",
+    "#6E83D0",
+];
+
+function pickColor(text: string) {
+    let hash = 0;
+    for (let i = 0; i < text.length; i++) {
+        hash = (hash * 31 + text.charCodeAt(i)) >>> 0;
+    }
+    return tagColors[hash % tagColors.length];
+}
+---
+
+<div class="flex flex-row">
+    {
+        tags.map((tag) => (
+            <div
+                class={`text-${ts} mr-0.75 rounded-full px-1.5 py-0.25`}
+                style={`background-color: ${pickColor(tag)}`}
+            >
+                {tag}
+            </div>
+        ))
+    }
+</div>

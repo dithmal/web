@@ -1,0 +1,33 @@
+---
+import FormattedDate from "./FormattedDate.astro";
+import Tag from "./Tag.astro";
+
+interface Props {
+    id: string;
+    title: string;
+    description: string;
+    pubDate: Date;
+    heroImage?: string;
+    tags?: string[];
+}
+
+const { id, title, description, pubDate, heroImage = "/blog-placeholder.jpg", tags } = Astro.props;
+---
+
+<a href={`/blog/${id}/`}>
+    <div class="bg-[#2f2f2f] flex flex-col my-4 mr-4 rounded-lg max-h-72 max-w-72 min-w-[250px]">
+        <div class="h-[200px]">
+            <img class="object-fill size-full" src={heroImage} alt="" />
+        </div>
+        <div class="p-2">
+            <div class="flex flex-row items-center justify-between">
+                <h4 class="title font-bold text-lg">{title}</h4>
+                <p class="text-xs">
+                    <FormattedDate date={pubDate} />
+                </p>
+            </div>
+            {tags ? <Tag tags={tags} ts="xs" /> : <></>}
+            <p class="text-sm mt-2">{description}</p>
+        </div>
+    </div>
+</a>

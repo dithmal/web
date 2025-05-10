@@ -40,6 +40,11 @@
           "name": "heroImage",
           "type": "image",
           "isPreviewImage": true
+        },
+        {
+          "title": "tags",
+          "name": "tags",
+          "type": "tags"
         }
       ]
     }

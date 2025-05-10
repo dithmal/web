@@ -61,15 +61,27 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
         <meta property="twitter:description" content={description} />
         <meta property="twitter:image" content={new URL(image, Astro.url)} />
     </head>
-    <body>
-        <header class="flex flex-row justify-center py-4">
-            <h2 class="text-4xl italic font-black">
+    <body class="flex flex-col min-h-screen">
+        <header class="flex flex-row justify-center py-6">
+            <h2 class="text-3xl italic font-black">
                 <a href="/">{SITE_TITLE}</a>
             </h2>
         </header>
-        <main>
+        <main class="py-2 grow">
             <slot />
         </main>
-        <!-- <Footer /> -->
+        <footer class="bottom-0 left-0 flex flex-col items-center my-2">
+            <div class="flex flex-row mb-4">
+                <a class="mx-2" href="https://instagram.com/dithmal_"
+                    >Instagram</a
+                >
+                <a class="mx-2" href="https://www.linkedin.com/in/dithmal/"
+                    >LinkedIn</a
+                >
+                <a class="mx-2" href="https://github.com/dithmal">GitHub</a>
+                <a class="mx-2" href="https://x.com/dithmal">X</a>
+            </div>
+            <p class="text-center text-xs">&copy; Nadila Dithmal Kulanatha</p>
+        </footer>
     </body>
 </html>
