@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+:root {
+    background-color: #1E1E1E;
+    color: #FFFFFF
+}
+
+* {
+    font-family: "Inter", "Roboto", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
