@@ -1,38 +1,52 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import FormattedDate from "../components/FormattedDate.astro";
 import BaseLayout from "./BaseLayout.astro";
+import Tag from "../components/Tag.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, tags } =
+	Astro.props;
 ---
 
 <BaseLayout title={title} description={description} image={heroImage}>
-	<article>
-		<div class="hero-image">
+	<article class="flex flex-col items-center">
+		<a class="underline w-full max-w-3xl px-10 mb-2" href="/">&lt; Back</a>
+		<div class="hero-image w-full max-w-5xl px-4 object-cover">
 			{
 				heroImage && (
-					<img width={1020} height={510} src={heroImage} alt="" />
+					<img
+						class="min-h-[300px] object-cover"
+						src={heroImage}
+						alt=""
+					/>
 				)
 			}
 		</div>
-		<div class="prose">
-			<div class="title">
-				<div class="date">
-					<FormattedDate date={pubDate} />
-					{
-						updatedDate && (
-							<div class="last-updated-on">
-								Last updated on{" "}
-								<FormattedDate date={updatedDate} />
-							</div>
-						)
-					}
+		<div class="prose w-full max-w-3xl px-10 mt-10">
+			<div
+				class="title flex flex-col md:flex-row w-full md:items-center md:justify-between mb-5"
+			>
+				<h1 class="text-2xl sm:text-4xl md:text-4xl font-bold">
+					{title}
+				</h1>
+				<div class="date md:text-right">
+					<time
+						class="text-xs md:text-sm text-white/75 font-light"
+						datetime={pubDate.toISOString()}
+					>
+						{
+							pubDate.toLocaleDateString("en-us", {
+								year: "numeric",
+								month: "short",
+								day: "numeric",
+							})
+						}
+					</time>
 				</div>
-				<h1>{title}</h1>
-				<hr />
 			</div>
+			{tags ? <Tag tags={tags} /> : <></>}
+			<div class="mb-5"/>
 			<slot />
 		</div>
 	</article>
