@@ -12,3 +12,7 @@
 .article-content>p {
     margin-bottom: 0.75rem;
 }
+
+.article-content a {
+    text-decoration: underline;
+}
