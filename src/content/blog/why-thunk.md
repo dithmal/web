@@ -26,7 +26,7 @@ started off on Thunk. It was a note-taking app, a *Personal Knowledge Management
 
 After spending a little bit of time with the initial idea, we realized that 
 we're just reinventing the wheel: almost all the features we were proposing 
-were either supported natively by similar platforms, or could be enabled with  
+were either supported natively by similar platforms, or could be enabled with
 available extensions. That led to our first pivot. Why not hook into all that 
 and just go to where the data already is? So then Thunk became a knowledge 
 management hub where we'd connect with a user's Notes, emails, calendar, etc 
