@@ -2,10 +2,7 @@
 
 ---
 
---- ---
 <script lang="js">
-    import { configs } from "../configs";
-
     !(function (t, e) {
         var o, n, p, r;
         e.__SV ||
@@ -63,8 +60,8 @@
             }),
             (e.__SV = 1));
     })(document, window.posthog || []);
-    posthog.init(configs.posthog_api_key, {
-        api_host: configs.posthog_host,
+    posthog.init("phc_D8edDJ0GnrfVMFnSW2mbbkUcOgjLywTUYQqAC8v4t3m", {
+        api_host: "https://spider.dithmal.lk",
         person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well
     });
 </script>
