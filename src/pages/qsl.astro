@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="QSL de 4S7NAD!" description="">
+    <div
+        class="flex flex-col justify-center items-center size-full text-center px-10"
+    >
+        <h1 class="text-3xl font-bold">QSL de 4S7NAD!</h1>
+        <p class="mt-4">
+            Hello, OM or YL! If you're seeing this, you probably received a QSL
+            card from me. Thanks for the lovely QSO, and I hope to see you down
+            the log!
+        </p>
+        {
+
+                // TODO: do the card section!
+                /*        <p class="mt-4">
+            I have added my QSL card designs below. I shall add more designs if
+            I make any as well.
+        </p>
+        <div class="qsl-carousel w-dvw bg-black">
+            <div class="card mx-2">
+                <img
+                    class="max-w-lg bg-gray-300 rounded-md"
+                    src="/public/qsl/card/1.png"
+                    alt="Sunset from 4S7NAD's Home QTH"
+                />
+            </div>
+        </div> */
+        }
+        <h3 class="text-xl font-bold mt-10">Latest Logs</h3>
+        <iframe
+            class="bg-white opacity-75 rounded-lg mt-2 mx-2 w-dvw max-w-2xl"
+            frameborder="0"
+            height="500"
+            scrolling="yes"
+            src="https://logbook.qrz.com/lbstat/4S7NAD/"></iframe>
+        <p class="mt-4">Feel free to drop me a line below at my socials</p>
+    </div>
+</BaseLayout>

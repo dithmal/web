@@ -9,7 +9,12 @@ export default defineConfig({
 	site: 'https://dithmal.lk',
 	integrations: [
 		mdx(),
-		sitemap(),
+		sitemap({
+			filter: (page) => {
+				const pathname = new URL(page).pathname;
+				return pathname !== '/qsl' && pathname !== '/qsl/';
+			},
+		}), ,
 	],
 	vite: {
 		// @ts-ignore
